@@ -64,6 +64,20 @@
             box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
             text-align: center;
         }
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            border: 1px solid transparent;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .lang-btn.active {
+            background-color: #166534; /* green-800 */
+            border-color: #22c55e; /* green-500 */
+            font-weight: 600;
+        }
+        .lang-btn:not(.active):hover {
+            background-color: #15803d; /* green-700 */
+        }
     </style>
 </head>
 <body class="text-gray-800 antialiased">
@@ -71,8 +85,19 @@
     <!-- Header Section -->
     <header class="bg-green-800 text-white shadow-lg">
         <div class="container mx-auto px-6 py-8">
-            <h1 class="text-4xl md:text-5xl font-bold leading-tight">Agri-Connect</h1>
-            <p class="text-lg md:text-xl mt-2 text-green-200">An AI-Powered Advisory System for Modern Agriculture</p>
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight" data-key="main_title">Agri-Connect</h1>
+                    <p class="text-lg md:text-xl mt-2 text-green-200" data-key="subtitle">An AI-Powered Advisory System for Modern Agriculture</p>
+                </div>
+                <!-- Language Switcher -->
+                <div id="language-switcher" class="flex space-x-2 bg-green-900 p-1 rounded-lg">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="hi">HI</button>
+                    <button class="lang-btn" data-lang="ml">ML</button>
+                    <button class="lang-btn" data-lang="kn">KN</button>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -83,54 +108,54 @@
         <section id="summary" class="section-card">
             <h2 class="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                Executive Summary
+                <span data-key="summary_title">Executive Summary</span>
             </h2>
             <div class="md:flex md:space-x-8 items-center">
                 <div class="md:w-2/3">
-                    <p class="mb-4">Originally conceived for the agricultural landscape of Kerala, the Agri-Connect project has been adapted and is now being launched with real-time data from over 10,000 farmer interactions in Rajasthan, addressing their most immediate and pressing challenges. Our data reveals two critical pain points: determining optimal crop sowing times according to specific soil types and navigating opaque government procurement processes where middlemen diminish profits.</p>
-                    <p class="mb-4">This report details "Agri-Connect," a multilingual AI-powered advisory system designed to bridge these gaps. Supporting Hindi, Malayalam, and English, the platform empowers farmers to receive instant, context-aware answers to complex cultivation and commerce questions via text, voice, or image.</p>
-                    <p>By leveraging fine-tuned LLMs, the system provides soil-specific crop calendars and real-time market intelligence, aiming to automate first-level support, ensure fair market access, and ultimately boost farmer livelihoods.</p>
+                    <p class="mb-4" data-key="summary_p1">Originally conceived for the agricultural landscape of Kerala, the Agri-Connect project has been adapted and is now being launched with real-time data from over 10,000 farmer interactions in Rajasthan, addressing their most immediate and pressing challenges. Our data reveals two critical pain points: determining optimal crop sowing times according to specific soil types and navigating opaque government procurement processes where middlemen diminish profits.</p>
+                    <p class="mb-4" data-key="summary_p2">This report details "Agri-Connect," a multilingual AI-powered advisory system designed to bridge these gaps. Supporting Hindi, Malayalam, and English, the platform empowers farmers to receive instant, context-aware answers to complex cultivation and commerce questions via text, voice, or image.</p>
+                    <p data-key="summary_p3">By leveraging fine-tuned LLMs, the system provides soil-specific crop calendars and real-time market intelligence, aiming to automate first-level support, ensure fair market access, and ultimately boost farmer livelihoods.</p>
                 </div>
                 <div class="md:w-1/3 mt-6 md:mt-0">
-                    <img src="https://images.pexels.com/photos/10399125/pexels-photo-10399125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Indian farmer using a smartphone in a paddy field" class="rounded-lg shadow-md w-full h-auto object-cover">
-                    <p class="text-center text-sm text-gray-500 mt-2">Empowering Rajasthan's farmers with technology.</p>
+                    <img src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Indian farmer working hard in the field with a hoe" class="rounded-lg shadow-md w-full h-auto object-cover">
+                    <p class="text-center text-sm text-gray-500 mt-2" data-key="summary_img_caption">Empowering Rajasthan's farmers with technology.</p>
                 </div>
             </div>
         </section>
 
         <!-- The Challenge: Data & Analytics -->
         <section id="challenge" class="section-card">
-            <h2>The Challenge: A Tale of Two Timelines</h2>
-            <p class="mb-6">To understand the need for Agri-Connect, we must analyze both the historical, systemic issues and the immediate, data-driven problems faced by farmers in Rajasthan today.</p>
+            <h2 data-key="challenge_title">The Challenge: A Tale of Two Timelines</h2>
+            <p class="mb-6" data-key="challenge_p1">To understand the need for Agri-Connect, we must analyze both the historical, systemic issues and the immediate, data-driven problems faced by farmers in Rajasthan today.</p>
             
-            <h3 class="text-xl font-semibold text-green-800 mb-4">Historical Context: The Persistent Information Gap</h3>
-            <p class="mb-6 text-gray-600">For decades, farmers have operated with significant disadvantages. Traditional support systems are slow and overwhelmed, leading to quantifiable losses. The following metrics represent the long-standing challenges that our project aims to solve permanently:</p>
+            <h3 class="text-xl font-semibold text-green-800 mb-4" data-key="challenge_subtitle1">Historical Context: The Persistent Information Gap</h3>
+            <p class="mb-6 text-gray-600" data-key="challenge_p2">For decades, farmers have operated with significant disadvantages. Traditional support systems are slow and overwhelmed, leading to quantifiable losses. The following metrics represent the long-standing challenges that our project aims to solve permanently:</p>
             <div class="grid md:grid-cols-3 gap-6 mb-10">
                 <div class="hist-kpi-card">
                     <div class="text-5xl font-bold text-red-600">78%</div>
-                    <p class="font-semibold text-gray-700 mt-2">Of farmers lack access to timely, expert advice for critical issues like pest control.</p>
+                    <p class="font-semibold text-gray-700 mt-2" data-key="hist_kpi1">Of farmers lack access to timely, expert advice for critical issues like pest control.</p>
                 </div>
                 <div class="hist-kpi-card">
                     <div class="text-5xl font-bold text-yellow-600">12+</div>
-                    <p class="font-semibold text-gray-700 mt-2">Hours often wasted by farmers waiting for responses from overburdened agri officers.</p>
+                    <p class="font-semibold text-gray-700 mt-2" data-key="hist_kpi2">Hours often wasted by farmers waiting for responses from overburdened agri officers.</p>
                 </div>
                 <div class="hist-kpi-card">
                     <div class="text-5xl font-bold text-red-700">45%</div>
-                    <p class="font-semibold text-gray-700 mt-2">Potential crop loss due to delayed information on weather and diseases.</p>
+                    <p class="font-semibold text-gray-700 mt-2" data-key="hist_kpi3">Potential crop loss due to delayed information on weather and diseases.</p>
                 </div>
             </div>
 
-            <h3 class="text-xl font-semibold text-green-800 mb-4 mt-8">Current Needs: Real-Time Data from Rajasthan</h3>
-            <p class="mb-6 text-gray-600">Our direct interactions with over 10,000 farmers in Rajasthan pinpoint their modern challenges. The data below shows where they need the most help right now.</p>
+            <h3 class="text-xl font-semibold text-green-800 mb-4 mt-8" data-key="challenge_subtitle2">Current Needs: Real-Time Data from Rajasthan</h3>
+            <p class="mb-6 text-gray-600" data-key="challenge_p3">Our direct interactions with over 10,000 farmers in Rajasthan pinpoint their modern challenges. The data below shows where they need the most help right now.</p>
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="kpi-card">
-                    <h3 class="text-lg font-semibold text-green-800 mb-2">Common Farmer Queries (Rajasthan Data)</h3>
-                    <p class="text-sm mb-4">Distribution based on analysis of 10,000+ real-time farmer interactions.</p>
+                    <h3 class="text-lg font-semibold text-green-800 mb-2" data-key="chart1_title">Common Farmer Queries (Rajasthan Data)</h3>
+                    <p class="text-sm mb-4" data-key="chart1_subtitle">Distribution based on analysis of 10,000+ real-time farmer interactions.</p>
                     <canvas id="queryPieChart"></canvas>
                 </div>
                 <div class="kpi-card">
-                    <h3 class="text-lg font-semibold text-green-800 mb-2">The Financial Cost of Information Delay</h3>
-                     <p class="text-sm mb-4">Analysis of potential daily income loss per hectare from waiting for critical advice.</p>
+                    <h3 class="text-lg font-semibold text-green-800 mb-2" data-key="chart2_title">The Financial Cost of Information Delay</h3>
+                     <p class="text-sm mb-4" data-key="chart2_subtitle">Analysis of potential daily income loss per hectare from waiting for critical advice.</p>
                     <canvas id="costOfDelayChart"></canvas>
                 </div>
             </div>
@@ -138,26 +163,26 @@
 
         <!-- The Solution: Core Features -->
         <section id="solution" class="section-card">
-            <h2>The Solution: An AI-Powered Digital Assistant</h2>
-            <p class="mb-8">"Agri-Connect" is designed with a farmer-first approach. Its core features are built to address both historical and current challenges with a multilingual, data-rich platform.</p>
+            <h2 data-key="solution_title">The Solution: An AI-Powered Digital Assistant</h2>
+            <p class="mb-8" data-key="solution_p1">"Agri-Connect" is designed with a farmer-first approach. Its core features are built to address both historical and current challenges with a multilingual, data-rich platform.</p>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <!-- Feature 1: Multilingual Interface -->
                 <div class="p-6 bg-gray-50 rounded-lg">
                     <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10-5-10M17 3l-5 10 5 10" />
-                        </svg>
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10-5-10M17 3l-5 10 5 10" />
+                         </svg>
                     </div>
-                    <h3 class="font-semibold text-lg text-green-800">Multilingual Interface</h3>
-                    <p class="text-sm mt-1">Full support for Hindi, Malayalam, and English, ensuring accessibility for all users.</p>
+                    <h3 class="font-semibold text-lg text-green-800" data-key="feature1_title">Multilingual Interface</h3>
+                    <p class="text-sm mt-1" data-key="feature1_desc">Full support for Hindi, Malayalam, and English, ensuring accessibility for all users.</p>
                 </div>
                  <!-- Feature 2: Natural Language -->
                 <div class="p-6 bg-gray-50 rounded-lg">
                     <div class="feature-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5a6 6 0 00-6-6v-1.5a6 6 0 00-6 6v1.5a6 6 0 006 6zM12 18.75a6 6 0 01-6-6v-1.5a6 6 0 016-6v-1.5a6 6 0 016 6v1.5a6 6 0 01-6 6z" /></svg>
                     </div>
-                    <h3 class="font-semibold text-lg text-green-800">Natural Language Query</h3>
-                    <p class="text-sm mt-1">Ask questions in conversational language via text or voice, removing literacy barriers.</p>
+                    <h3 class="font-semibold text-lg text-green-800" data-key="feature2_title">Natural Language Query</h3>
+                    <p class="text-sm mt-1" data-key="feature2_desc">Ask questions in conversational language via text or voice, removing literacy barriers.</p>
                 </div>
                 <!-- Feature 3: Market Intelligence -->
                 <div class="p-6 bg-gray-50 rounded-lg">
@@ -166,24 +191,24 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V6.375m0 0A1.125 1.125 0 013.375 5.25h17.25c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-17.25a1.125 1.125 0 01-1.125-1.125v-9.75z" />
                         </svg>
                     </div>
-                    <h3 class="font-semibold text-lg text-green-800">Market Intelligence</h3>
-                    <p class="text-sm mt-1">Provides daily Mandi prices, MSP info, and demand forecasts to help farmers bypass middlemen.</p>
+                    <h3 class="font-semibold text-lg text-green-800" data-key="feature3_title">Market Intelligence</h3>
+                    <p class="text-sm mt-1" data-key="feature3_desc">Provides daily Mandi prices, MSP info, and demand forecasts to help farmers bypass middlemen.</p>
                 </div>
                 <!-- Feature 4: Context Aware -->
                 <div class="p-6 bg-gray-50 rounded-lg">
                     <div class="feature-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
                     </div>
-                    <h3 class="font-semibold text-lg text-green-800">Hyper-Local Context</h3>
-                    <p class="text-sm mt-1">Factors in farmer's location, soil type, and season for personalized advice.</p>
+                    <h3 class="font-semibold text-lg text-green-800" data-key="feature4_title">Hyper-Local Context</h3>
+                    <p class="text-sm mt-1" data-key="feature4_desc">Factors in farmer's location, soil type, and season for personalized advice.</p>
                 </div>
             </div>
         </section>
 
         <!-- System Architecture -->
         <section id="architecture" class="section-card">
-            <h2>System Architecture & Workflow</h2>
-            <p class="mb-12">The Agri-Connect platform is built on a modular, cloud-native architecture designed for scalability and real-time processing. The workflow below illustrates the journey of a farmer's query from input to resolution, highlighting the core AI processing and the seamless integration of human expertise when required.</p>
+            <h2 data-key="arch_title">System Architecture & Workflow</h2>
+            <p class="mb-12" data-key="arch_p1">The Agri-Connect platform is built on a modular, cloud-native architecture designed for scalability and real-time processing. The workflow below illustrates the journey of a farmer's query from input to resolution, highlighting the core AI processing and the seamless integration of human expertise when required.</p>
             
             <div class="relative">
                 <!-- Center line -->
@@ -197,8 +222,8 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
                         </div>
                         <div class="mt-4">
-                            <h3 class="font-semibold text-green-800">1. Farmer Input</h3>
-                            <p class="text-sm text-gray-600 mt-1">Query via Text, Voice, or Image through the mobile app.</p>
+                            <h3 class="font-semibold text-green-800" data-key="step1_title">1. Farmer Input</h3>
+                            <p class="text-sm text-gray-600 mt-1" data-key="step1_desc">Query via Text, Voice, or Image through the mobile app.</p>
                         </div>
                     </div>
                     
@@ -208,8 +233,8 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2" /></svg>
                         </div>
                         <div class="mt-4">
-                            <h3 class="font-semibold text-green-800">2. Pre-Processing</h3>
-                            <p class="text-sm text-gray-600 mt-1">Data is cleaned. Speech is converted to text and images are analyzed.</p>
+                            <h3 class="font-semibold text-green-800" data-key="step2_title">2. Pre-Processing</h3>
+                            <p class="text-sm text-gray-600 mt-1" data-key="step2_desc">Data is cleaned. Speech is converted to text and images are analyzed.</p>
                         </div>
                     </div>
 
@@ -219,8 +244,8 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25z" /></svg>
                         </div>
                         <div class="mt-4">
-                            <h3 class="font-semibold text-green-800">3. AI Core Engine</h3>
-                            <p class="text-sm text-gray-600 mt-1">LLM enriches query with location, soil type, and market data to find the best answer.</p>
+                            <h3 class="font-semibold text-green-800" data-key="step3_title">3. AI Core Engine</h3>
+                            <p class="text-sm text-gray-600 mt-1" data-key="step3_desc">LLM enriches query with location, soil type, and market data to find the best answer.</p>
                         </div>
                     </div>
 
@@ -230,8 +255,8 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
                         </div>
                         <div class="mt-4">
-                            <h3 class="font-semibold text-green-800">4. Actionable Advice</h3>
-                            <p class="text-sm text-gray-600 mt-1">A clear, concise answer is sent to the farmer's app in their native language.</p>
+                            <h3 class="font-semibold text-green-800" data-key="step4_title">4. Actionable Advice</h3>
+                            <p class="text-sm text-gray-600 mt-1" data-key="step4_desc">A clear, concise answer is sent to the farmer's app in their native language.</p>
                         </div>
                     </div>
                 </div>
@@ -239,10 +264,10 @@
                 <div class="mt-12 flex justify-center">
                     <div class="flex flex-col items-center text-center w-64 p-4 border-2 border-dashed border-yellow-400 bg-yellow-50 rounded-lg">
                          <div class="flex items-center justify-center w-12 h-12 bg-yellow-400 text-white rounded-full shadow-md">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-                        </div>
-                        <h3 class="font-semibold text-yellow-800 mt-3">Human Escalation</h3>
-                        <p class="text-sm text-yellow-700 mt-1">If the AI's confidence is low, the entire case is seamlessly forwarded to a local agricultural expert for review.</p>
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                         </div>
+                        <h3 class="font-semibold text-yellow-800 mt-3" data-key="escalation_title">Human Escalation</h3>
+                        <p class="text-sm text-yellow-700 mt-1" data-key="escalation_desc">If the AI's confidence is low, the entire case is seamlessly forwarded to a local agricultural expert for review.</p>
                     </div>
                 </div>
             </div>
@@ -250,38 +275,38 @@
 
         <!-- Expected Impact -->
         <section id="impact" class="section-card">
-            <h2>Expected Impact & Data-Driven Projections</h2>
-            <p class="mb-8">Agri-Connect is designed to deliver tangible benefits. By providing direct access to tailored information and market data, the platform will not only improve agricultural practices but also significantly boost farmer income. The following data points and projections quantify the expected impact.</p>
+            <h2 data-key="impact_title">Expected Impact & Data-Driven Projections</h2>
+            <p class="mb-8" data-key="impact_p1">Agri-Connect is designed to deliver tangible benefits. By providing direct access to tailored information and market data, the platform will not only improve agricultural practices but also significantly boost farmer income. The following data points and projections quantify the expected impact.</p>
 
             <!-- KPI Cards -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center mb-12">
                 <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-5xl text-green-600 font-bold">15%</div>
-                    <p class="mt-2 text-gray-600 font-semibold">Projected Increase in Crop Yield</p>
+                    <p class="mt-2 text-gray-600 font-semibold" data-key="impact_kpi1">Projected Increase in Crop Yield</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-5xl text-green-600 font-bold">20%</div>
-                    <p class="mt-2 text-gray-600 font-semibold">Potential Increase in Farmer Income</p>
+                    <p class="mt-2 text-gray-600 font-semibold" data-key="impact_kpi2">Potential Increase in Farmer Income</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-5xl text-blue-600 font-bold">50%</div>
-                    <p class="mt-2 text-gray-600 font-semibold">Faster Access to Govt. Subsidies</p>
+                    <p class="mt-2 text-gray-600 font-semibold" data-key="impact_kpi3">Faster Access to Govt. Subsidies</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-5xl text-red-500 font-bold">25%</div>
-                    <p class="mt-2 text-gray-600 font-semibold">Reduction in Pesticide Use</p>
+                    <p class="mt-2 text-gray-600 font-semibold" data-key="impact_kpi4">Reduction in Pesticide Use</p>
                 </div>
             </div>
             
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="kpi-card">
-                    <h3 class="text-lg font-semibold text-green-800 mb-2">Query Resolution Time Analysis</h3>
-                    <p class="text-sm mb-4">Drastic reduction in average time taken to get a trusted answer for a critical query.</p>
+                    <h3 class="text-lg font-semibold text-green-800 mb-2" data-key="chart3_title">Query Resolution Time Analysis</h3>
+                    <p class="text-sm mb-4" data-key="chart3_subtitle">Drastic reduction in average time taken to get a trusted answer for a critical query.</p>
                     <canvas id="resolutionTimeChart"></canvas>
                 </div>
                 <div class="kpi-card">
-                    <h3 class="text-lg font-semibold text-green-800 mb-2">Farmer Profitability Analysis</h3>
-                    <p class="text-sm mb-4">Projected income per hectare with and without Agri-Connect market linkage.</p>
+                    <h3 class="text-lg font-semibold text-green-800 mb-2" data-key="chart4_title">Farmer Profitability Analysis</h3>
+                    <p class="text-sm mb-4" data-key="chart4_subtitle">Projected income per hectare with and without Agri-Connect market linkage.</p>
                     <canvas id="profitabilityBarChart"></canvas>
                 </div>
             </div>
@@ -293,23 +318,23 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c.252 0 .504 0 .752.011a2.25 2.25 0 012.248 2.248v5.714a2.25 2.25 0 01-.659 1.591L14.25 14.5M9.75 3.104a2.25 2.25 0 00-2.25 2.25v5.714a2.25 2.25 0 00.659 1.591L9.75 14.5m0-11.396c.252 0 .504 0 .752.011a2.25 2.25 0 002.248-2.248M14.25 14.5c.621 0 1.125-.504 1.125-1.125V6.104a2.25 2.25 0 00-2.248-2.248c-.248.01-.499.01-.752.01M14.25 14.5L9.75 21m0 0l-4.5-6.5m4.5 6.5l4.5-6.5" />
                 </svg>
-                Agri-Connect: Live Demo ✨
+                <span data-key="demo_title">Agri-Connect: Live Demo ✨</span>
             </h2>
-            <p class="mb-6 text-gray-600">Experience the power of Agri-Connect firsthand. Ask a question about farming in Rajasthan and get an instant, AI-generated recommendation. This demo uses the Gemini API with Google Search grounding to provide the most relevant and up-to-date information possible.</p>
+            <p class="mb-6 text-gray-600" data-key="demo_p1">Experience the power of Agri-Connect firsthand. Ask a question about farming in Rajasthan and get an instant, AI-generated recommendation. This demo uses the Gemini API with Google Search grounding to provide the most relevant and up-to-date information possible.</p>
             
             <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
                 <div class="mb-4">
-                    <label for="queryInput" class="block text-sm font-medium text-gray-700 mb-2">Ask your question:</label>
-                    <textarea id="queryInput" rows="4" class="w-full p-3 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 transition" placeholder="e.g., What is the best time to plant mustard in Ajmer? or मेरे कपास के पत्तों में छेद क्यों हैं?"></textarea>
+                    <label for="queryInput" class="block text-sm font-medium text-gray-700 mb-2" data-key="demo_label">Ask your question:</label>
+                    <textarea id="queryInput" rows="4" class="w-full p-3 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 transition" data-key-placeholder="demo_placeholder"></textarea>
                 </div>
                 <div class="mb-4 text-sm">
-                    <span class="font-medium">Or try an example:</span>
-                    <button class="example-query-btn text-green-700 hover:underline ml-2" data-query="What are the current government subsidies for drip irrigation in Rajasthan?">Drip irrigation subsidies?</button>
-                    <button class="example-query-btn text-green-700 hover:underline ml-2" data-query="Best pest control for whitefly on cotton plants?">Whitefly on cotton?</button>
+                    <span class="font-medium" data-key="demo_example_text">Or try an example:</span>
+                    <button class="example-query-btn text-green-700 hover:underline ml-2" data-query="What are the current government subsidies for drip irrigation in Rajasthan?" data-key="demo_example1">Drip irrigation subsidies?</button>
+                    <button class="example-query-btn text-green-700 hover:underline ml-2" data-query="Best pest control for whitefly on cotton plants?" data-key="demo_example2">Whitefly on cotton?</button>
                 </div>
                 <div class="flex items-center">
                     <button id="submitQueryBtn" class="bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition disabled:bg-gray-400">
-                        ✨ Get AI Advice
+                        <span data-key="demo_button">✨ Get AI Advice</span>
                     </button>
                     <div id="loadingSpinner" class="ml-4" style="display: none;">
                         <svg class="animate-spin h-5 w-5 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -321,9 +346,9 @@
             </div>
 
             <div class="mt-6">
-                <h3 class="text-lg font-semibold text-green-800 mb-2">AI Response:</h3>
+                <h3 class="text-lg font-semibold text-green-800 mb-2" data-key="demo_response_title">AI Response:</h3>
                 <div id="aiResponse" class="p-6 bg-green-50 border-l-4 border-green-500 rounded-r-lg min-h-[100px] text-gray-700 leading-relaxed whitespace-pre-wrap">
-                    Your AI-powered advice will appear here...
+                    <span data-key="demo_response_placeholder">Your AI-powered advice will appear here...</span>
                 </div>
             </div>
         </section>
@@ -333,20 +358,377 @@
     <!-- Footer -->
     <footer class="bg-green-900 text-green-200 mt-8">
         <div class="container mx-auto px-6 py-4 text-center">
-            <p>&copy; 2024 Agri-Connect Project. All Rights Reserved.</p>
-            <p class="text-sm text-green-300">A Farmer-First Initiative</p>
+            <p data-key="footer_p1">&copy; 2024 Agri-Connect Project. All Rights Reserved.</p>
+            <p class="text-sm text-green-300" data-key="footer_p2">A Farmer-First Initiative</p>
         </div>
     </footer>
 
     <script>
-        // Chart.js Configuration
-        document.addEventListener('DOMContentLoaded', function () {
+        // --- Translations Object ---
+        const translations = {
+            en: {
+                main_title: "Agri-Connect",
+                subtitle: "An AI-Powered Advisory System for Modern Agriculture",
+                summary_title: "Executive Summary",
+                summary_p1: "Originally conceived for the agricultural landscape of Kerala, the Agri-Connect project has been adapted and is now being launched with real-time data from over 10,000 farmer interactions in Rajasthan, addressing their most immediate and pressing challenges. Our data reveals two critical pain points: determining optimal crop sowing times according to specific soil types and navigating opaque government procurement processes where middlemen diminish profits.",
+                summary_p2: `This report details "Agri-Connect," a multilingual AI-powered advisory system designed to bridge these gaps. Supporting Hindi, Malayalam, and English, the platform empowers farmers to receive instant, context-aware answers to complex cultivation and commerce questions via text, voice, or image.`,
+                summary_p3: "By leveraging fine-tuned LLMs, the system provides soil-specific crop calendars and real-time market intelligence, aiming to automate first-level support, ensure fair market access, and ultimately boost farmer livelihoods.",
+                summary_img_caption: "Empowering Rajasthan's farmers with technology.",
+                challenge_title: "The Challenge: A Tale of Two Timelines",
+                challenge_p1: "To understand the need for Agri-Connect, we must analyze both the historical, systemic issues and the immediate, data-driven problems faced by farmers in Rajasthan today.",
+                challenge_subtitle1: "Historical Context: The Persistent Information Gap",
+                challenge_p2: "For decades, farmers have operated with significant disadvantages. Traditional support systems are slow and overwhelmed, leading to quantifiable losses. The following metrics represent the long-standing challenges that our project aims to solve permanently:",
+                hist_kpi1: "Of farmers lack access to timely, expert advice for critical issues like pest control.",
+                hist_kpi2: "Hours often wasted by farmers waiting for responses from overburdened agri officers.",
+                hist_kpi3: "Potential crop loss due to delayed information on weather and diseases.",
+                challenge_subtitle2: "Current Needs: Real-Time Data from Rajasthan",
+                challenge_p3: "Our direct interactions with over 10,000 farmers in Rajasthan pinpoint their modern challenges. The data below shows where they need the most help right now.",
+                chart1_title: "Common Farmer Queries (Rajasthan Data)",
+                chart1_subtitle: "Distribution based on analysis of 10,000+ real-time farmer interactions.",
+                chart2_title: "The Financial Cost of Information Delay",
+                chart2_subtitle: "Analysis of potential daily income loss per hectare from waiting for critical advice.",
+                solution_title: "The Solution: An AI-Powered Digital Assistant",
+                solution_p1: `"Agri-Connect" is designed with a farmer-first approach. Its core features are built to address both historical and current challenges with a multilingual, data-rich platform.`,
+                feature1_title: "Multilingual Interface",
+                feature1_desc: "Full support for Hindi, Malayalam, and English, ensuring accessibility for all users.",
+                feature2_title: "Natural Language Query",
+                feature2_desc: "Ask questions in conversational language via text or voice, removing literacy barriers.",
+                feature3_title: "Market Intelligence",
+                feature3_desc: "Provides daily Mandi prices, MSP info, and demand forecasts to help farmers bypass middlemen.",
+                feature4_title: "Hyper-Local Context",
+                feature4_desc: "Factors in farmer's location, soil type, and season for personalized advice.",
+                arch_title: "System Architecture & Workflow",
+                arch_p1: "The Agri-Connect platform is built on a modular, cloud-native architecture designed for scalability and real-time processing. The workflow below illustrates the journey of a farmer's query from input to resolution, highlighting the core AI processing and the seamless integration of human expertise when required.",
+                step1_title: "1. Farmer Input",
+                step1_desc: "Query via Text, Voice, or Image through the mobile app.",
+                step2_title: "2. Pre-Processing",
+                step2_desc: "Data is cleaned. Speech is converted to text and images are analyzed.",
+                step3_title: "3. AI Core Engine",
+                step3_desc: "LLM enriches query with location, soil type, and market data to find the best answer.",
+                step4_title: "4. Actionable Advice",
+                step4_desc: "A clear, concise answer is sent to the farmer's app in their native language.",
+                escalation_title: "Human Escalation",
+                escalation_desc: "If the AI's confidence is low, the entire case is seamlessly forwarded to a local agricultural expert for review.",
+                impact_title: "Expected Impact & Data-Driven Projections",
+                impact_p1: "Agri-Connect is designed to deliver tangible benefits. By providing direct access to tailored information and market data, the platform will not only improve agricultural practices but also significantly boost farmer income. The following data points and projections quantify the expected impact.",
+                impact_kpi1: "Projected Increase in Crop Yield",
+                impact_kpi2: "Potential Increase in Farmer Income",
+                impact_kpi3: "Faster Access to Govt. Subsidies",
+                impact_kpi4: "Reduction in Pesticide Use",
+                chart3_title: "Query Resolution Time Analysis",
+                chart3_subtitle: "Drastic reduction in average time taken to get a trusted answer for a critical query.",
+                chart4_title: "Farmer Profitability Analysis",
+                chart4_subtitle: "Projected income per hectare with and without Agri-Connect market linkage.",
+                demo_title: "Agri-Connect: Live Demo ✨",
+                demo_p1: "Experience the power of Agri-Connect firsthand. Ask a question about farming in Rajasthan and get an instant, AI-generated recommendation. This demo uses the Gemini API with Google Search grounding to provide the most relevant and up-to-date information possible.",
+                demo_label: "Ask your question:",
+                demo_placeholder: "e.g., What is the best time to plant mustard in Ajmer? or मेरे कपास के पत्तों में छेद क्यों हैं?",
+                demo_example_text: "Or try an example:",
+                demo_example1: "Drip irrigation subsidies?",
+                demo_example2: "Whitefly on cotton?",
+                demo_button: "✨ Get AI Advice",
+                demo_response_title: "AI Response:",
+                demo_response_placeholder: "Your AI-powered advice will appear here...",
+                footer_p1: "&copy; 2024 Agri-Connect Project. All Rights Reserved.",
+                footer_p2: "A Farmer-First Initiative",
+                charts: {
+                    query_pie_labels: ['Market Linkage & Prices', 'Crop & Soil Advisory', 'Pest & Disease', 'Govt. Schemes', 'Weather', 'Other'],
+                    cost_delay_labels: ['Pest Attack', 'Sowing Time Query', 'Subsidy Info Delay'],
+                    cost_delay_dataset_label: 'Potential Loss per Day (₹)',
+                    resolution_labels: ['Traditional Methods', 'Agri-Connect'],
+                    resolution_dataset_label: 'Avg. Resolution Time (Minutes)',
+                    profit_labels: ['Wheat', 'Mustard', 'Cotton'],
+                    profit_dataset_label1: 'Income without Agri-Connect (₹)',
+                    profit_dataset_label2: 'Income with Agri-Connect (₹)',
+                }
+            },
+            hi: {
+                main_title: "एग्री-कनेक्ट",
+                subtitle: "आधुनिक कृषि के लिए एक एआई-संचालित सलाहकार प्रणाली",
+                summary_title: "कार्यकारी सारांश",
+                summary_p1: "मूल रूप से केरल के कृषि परिदृश्य के लिए পরিকল্পিত, एग्री-कनेक्ट परियोजना को अनुकूलित किया गया है और अब इसे राजस्थान में 10,000 से अधिक किसान इंटरैक्शन से वास्तविक समय के डेटा के साथ लॉन्च किया जा रहा है, जो उनकी सबसे तत्काल और गंभीर चुनौतियों का समाधान करता है। हमारे डेटा से दो महत्वपूर्ण समस्याएँ सामने आती हैं: विशिष्ट मिट्टी के प्रकारों के अनुसार फसल बोने के इष्टतम समय का निर्धारण करना और अपारदर्शी सरकारी खरीद प्रक्रियाओं को नेविगेट करना जहाँ बिचौलिए मुनाफे को कम करते हैं।",
+                summary_p2: `यह रिपोर्ट "एग्री-कनेक्ट" का विवरण देती है, जो इन अंतरालों को पाटने के लिए डिज़ाइन की गई एक बहुभाषी एआई-संचालित सलाहकार प्रणाली है। हिंदी, मलयालम और अंग्रेजी का समर्थन करते हुए, यह मंच किसानों को टेक्स्ट, आवाज या छवि के माध्यम से जटिल खेती और वाणिज्य प्रश्नों के तत्काल, संदर्भ-जागरूक उत्तर प्राप्त करने में सशक्त बनाता है।`,
+                summary_p3: "फाइन-ट्यून किए गए एलएलएम का लाभ उठाकर, यह प्रणाली मिट्टी-विशिष्ट फसल कैलेंडर और वास्तविक समय की बाजार खुफिया जानकारी प्रदान करती है, जिसका उद्देश्य प्रथम-स्तरीय सहायता को स्वचालित करना, उचित बाजार पहुंच सुनिश्चित करना और अंततः किसान आजीविका को बढ़ावा देना है।",
+                summary_img_caption: "राजस्थान के किसानों को प्रौद्योगिकी से सशक्त बनाना।",
+                challenge_title: "चुनौती: दो समयरेखाओं की एक कहानी",
+                challenge_p1: "एग्री-कनेक्ट की आवश्यकता को समझने के लिए, हमें ऐतिहासिक, प्रणालीगत मुद्दों और राजस्थान में किसानों द्वारा आज सामना की जा रही तत्काल, डेटा-संचालित समस्याओं दोनों का विश्लेषण करना चाहिए।",
+                challenge_subtitle1: "ऐतिहासिक संदर्भ: लगातार सूचना का अंतर",
+                challenge_p2: "दशकों से, किसान महत्वपूर्ण नुकसान के साथ काम कर रहे हैं। पारंपरिक सहायता प्रणालियाँ धीमी और अतिभारित हैं, जिससे मात्रात्मक नुकसान होता है। निम्नलिखित मेट्रिक्स उन दीर्घकालिक चुनौतियों का प्रतिनिधित्व करते हैं जिन्हें हमारी परियोजना स्थायी रूप से हल करना चाहती है:",
+                hist_kpi1: "किसानों को कीट नियंत्रण जैसे महत्वपूर्ण मुद्दों के लिए समय पर विशेषज्ञ सलाह तक पहुंच नहीं है।",
+                hist_kpi2: "घंटे अक्सर किसानों द्वारा अतिभारित कृषि अधिकारियों से प्रतिक्रिया की प्रतीक्षा में बर्बाद हो जाते हैं।",
+                hist_kpi3: "मौसम और बीमारियों पर विलंबित जानकारी के कारण संभावित फसल हानि।",
+                challenge_subtitle2: "वर्तमान आवश्यकताएँ: राजस्थान से वास्तविक समय का डेटा",
+                challenge_p3: "राजस्थान में 10,000 से अधिक किसानों के साथ हमारी सीधी बातचीत उनकी आधुनिक चुनौतियों को इंगित करती है। नीचे दिया गया डेटा दिखाता है कि उन्हें अभी सबसे ज्यादा मदद की कहाँ आवश्यकता है।",
+                chart1_title: "आम किसान प्रश्न (राजस्थान डेटा)",
+                chart1_subtitle: "10,000+ वास्तविक समय के किसान इंटरैक्शन के विश्लेषण पर आधारित वितरण।",
+                chart2_title: "सूचना देरी की वित्तीय लागत",
+                chart2_subtitle: "महत्वपूर्ण सलाह की प्रतीक्षा से प्रति हेक्टेयर संभावित दैनिक आय हानि का विश्लेषण।",
+                solution_title: "समाधान: एक एआई-संचालित डिजिटल सहायक",
+                solution_p1: `"एग्री-कनेक्ट" को किसान-प्रथम दृष्टिकोण के साथ डिज़ाइन किया गया है। इसकी मुख्य विशेषताएँ एक बहुभाषी, डेटा-समृद्ध मंच के साथ ऐतिहासिक और वर्तमान दोनों चुनौतियों का समाधान करने के लिए बनाई गई हैं।`,
+                feature1_title: "बहुभाषी इंटरफ़ेस",
+                feature1_desc: "हिंदी, मलयालम और अंग्रेजी के लिए पूर्ण समर्थन, सभी उपयोगकर्ताओं के लिए पहुंच सुनिश्चित करना।",
+                feature2_title: "प्राकृतिक भाषा प्रश्न",
+                feature2_desc: "पाठ या आवाज के माध्यम से संवादी भाषा में प्रश्न पूछें, साक्षरता बाधाओं को दूर करें।",
+                feature3_title: "बाजार खुफिया",
+                feature3_desc: "किसानों को बिचौलियों को बायपास करने में मदद करने के लिए दैनिक मंडी की कीमतें, एमएसपी जानकारी और मांग पूर्वानुमान प्रदान करता है।",
+                feature4_title: "अति-स्थानीय संदर्भ",
+                feature4_desc: "व्यक्तिगत सलाह के लिए किसान के स्थान, मिट्टी के प्रकार और मौसम को ध्यान में रखता है।",
+                arch_title: "सिस्टम आर्किटेक्चर और वर्कफ़्लो",
+                arch_p1: "एग्री-कनेक्ट प्लेटफ़ॉर्म एक मॉड्यूलर, क्लाउड-नेटिव आर्किटेक्चर पर बनाया गया है जिसे स्केलेबिलिटी और रीयल-टाइम प्रोसेसिंग के लिए डिज़ाइन किया गया है। नीचे दिया गया वर्कफ़्लो इनपुट से समाधान तक किसान के प्रश्न की यात्रा को दिखाता है, जो कोर एआई प्रोसेसिंग और आवश्यक होने पर मानव विशेषज्ञता के सहज एकीकरण पर प्रकाश डालता है।",
+                step1_title: "1. किसान इनपुट",
+                step1_desc: "मोबाइल ऐप के माध्यम से टेक्स्ट, वॉयस या इमेज के जरिए क्वेरी करें।",
+                step2_title: "2. प्री-प्रोसेसिंग",
+                step2_desc: "डेटा साफ किया जाता है। भाषण को टेक्स्ट में बदला जाता है और छवियों का विश्लेषण किया जाता है।",
+                step3_title: "3. एआई कोर इंजन",
+                step3_desc: "एलएलएम सबसे अच्छा जवाब खोजने के लिए स्थान, मिट्टी के प्रकार और बाजार डेटा के साथ क्वेरी को समृद्ध करता है।",
+                step4_title: "4. कार्रवाई योग्य सलाह",
+                step4_desc: "एक स्पष्ट, संक्षिप्त उत्तर किसान के ऐप पर उनकी मूल भाषा में भेजा जाता है।",
+                escalation_title: "मानव हस्तक्षेप",
+                escalation_desc: "यदि एआई का आत्मविश्वास कम है, तो पूरा मामला समीक्षा के लिए एक स्थानीय कृषि विशेषज्ञ को भेजा जाता है।",
+                impact_title: "अपेक्षित प्रभाव और डेटा-संचालित अनुमान",
+                impact_p1: "एग्री-कनेक्ट को मूर्त लाभ देने के लिए डिज़ाइन किया गया है। अनुरूप जानकारी और बाजार डेटा तक सीधी पहुंच प्रदान करके, मंच न केवल कृषि पद्धतियों में सुधार करेगा बल्कि किसान की आय में भी उल्लेखनीय वृद्धि करेगा। निम्नलिखित डेटा बिंदु और अनुमान अपेक्षित प्रभाव को निर्धारित करते हैं।",
+                impact_kpi1: "फसल उपज में अनुमानित वृद्धि",
+                impact_kpi2: "किसान आय में संभावित वृद्धि",
+                impact_kpi3: "सरकारी सब्सिडी तक तेजी से पहुंच",
+                impact_kpi4: "कीटनाशक उपयोग में कमी",
+                chart3_title: "प्रश्न समाधान समय विश्लेषण",
+                chart3_subtitle: "एक महत्वपूर्ण प्रश्न के लिए विश्वसनीय उत्तर प्राप्त करने में लगने वाले औसत समय में भारी कमी।",
+                chart4_title: "किसान लाभप्रदता विश्लेषण",
+                chart4_subtitle: "एग्री-कनेक्ट बाजार लिंकेज के साथ और बिना प्रति हेक्टेयर अनुमानित आय।",
+                demo_title: "एग्री-कनेक्ट: लाइव डेमो ✨",
+                demo_p1: "एग्री-कनेक्ट की शक्ति का प्रत्यक्ष अनुभव करें। राजस्थान में खेती के बारे में एक प्रश्न पूछें और तत्काल, एआई-जनित सिफारिश प्राप्त करें। यह डेमो सबसे प्रासंगिक और अद्यतित जानकारी प्रदान करने के लिए Google खोज ग्राउंडिंग के साथ जेमिनी एपीआई का उपयोग करता है।",
+                demo_label: "अपना सवाल पूछो:",
+                demo_placeholder: "जैसे, अजमेर में सरसों बोने का सबसे अच्छा समय क्या है? या मेरे कपास के पत्तों में छेद क्यों हैं?",
+                demo_example_text: "या एक उदाहरण आज़माएँ:",
+                demo_example1: "ड्रिप सिंचाई सब्सिडी?",
+                demo_example2: "कपास पर सफेद मक्खी?",
+                demo_button: "✨ एआई सलाह प्राप्त करें",
+                demo_response_title: "एआई प्रतिक्रिया:",
+                demo_response_placeholder: "आपकी एआई-संचालित सलाह यहां दिखाई देगी...",
+                footer_p1: "© 2024 एग्री-कनेक्ट परियोजना। सर्वाधिकार सुरक्षित।",
+                footer_p2: "एक किसान-प्रथम पहल",
+                charts: {
+                    query_pie_labels: ['बाजार लिंकेज और कीमतें', 'फसल और मिट्टी सलाहकार', 'कीट और रोग', 'सरकारी योजनाएं', 'मौसम', 'अन्य'],
+                    cost_delay_labels: ['कीट का हमला', 'बुवाई का समय प्रश्न', 'सब्सिडी जानकारी में देरी'],
+                    cost_delay_dataset_label: 'प्रति दिन संभावित नुकसान (₹)',
+                    resolution_labels: ['पारंपरिक तरीके', 'एग्री-कनेक्ट'],
+                    resolution_dataset_label: 'औसत समाधान समय (मिनट)',
+                    profit_labels: ['गेहूं', 'सरसों', 'कपास'],
+                    profit_dataset_label1: 'एग्री-कनेक्ट के बिना आय (₹)',
+                    profit_dataset_label2: 'एग्री-कनेक्ट के साथ आय (₹)',
+                }
+            },
+            ml: {
+                main_title: "അഗ്രി-കണക്ട്",
+                subtitle: "ആധുനിക കൃഷിക്കുള്ള ഒരു എഐ-പവർഡ് ഉപദേശക സംവിധാനം",
+                summary_title: "എക്സിക്യൂട്ടീവ് സംഗ്രഹം",
+                summary_p1: "കേരളത്തിലെ കാർഷിക പശ്ചാത്തലത്തിനായി തുടക്കത്തിൽ വിഭാവനം ചെയ്ത അഗ്രി-കണക്ട് പദ്ധതി, രാജസ്ഥാനിലെ 10,000-ൽ അധികം കർഷകരുമായുള്ള തത്സമയ ഡാറ്റയുമായി ഇപ്പോൾ സമാരംഭിക്കുന്നു, അവരുടെ ഏറ്റവും അടിയന്തിരവും പ്രധാനപ്പെട്ടതുമായ വെല്ലുവിളികളെ അഭിമുഖീകരിക്കുന്നു. ഞങ്ങളുടെ ഡാറ്റ രണ്ട് പ്രധാന പ്രശ്നങ്ങൾ വെളിപ്പെടുത്തുന്നു: പ്രത്യേക മണ്ണിന്റെ തരം അനുസരിച്ച് വിള വിതയ്ക്കാനുള്ള ഏറ്റവും അനുയോജ്യമായ സമയം നിർണ്ണയിക്കുക, ഇടനിലക്കാർ ലാഭം കുറയ്ക്കുന്ന അതാര്യമായ സർക്കാർ സംഭരണ പ്രക്രിയകൾ നാവിഗേറ്റ് ചെയ്യുക.",
+                summary_p2: `ഈ വിടവുകൾ നികത്താൻ രൂപകൽപ്പന ചെയ്ത ഒരു ബഹുഭാഷാ എഐ-പവർഡ് ഉപദേശക സംവിധാനമായ "അഗ്രി-കണക്ട്" ഈ റിപ്പോർട്ട് വിശദീകരിക്കുന്നു. ഹിന്ദി, മലയാളം, ഇംഗ്ലീഷ് എന്നിവയെ പിന്തുണയ്ക്കുന്ന ഈ പ്ലാറ്റ്ഫോം, കർഷകർക്ക് സങ്കീർണ്ണമായ കൃഷി, വാണിജ്യ ചോദ്യങ്ങൾക്ക് ടെക്സ്റ്റ്, വോയിസ്, അല്ലെങ്കിൽ ഇമേജ് വഴി തൽക്ഷണവും സന്ദർഭോചിതവുമായ ഉത്തരങ്ങൾ ലഭിക്കാൻ പ്രാപ്തമാക്കുന്നു.`,
+                summary_p3: "സൂക്ഷ്മമായി ട്യൂൺ ചെയ്ത എൽ‌എൽ‌എമ്മുകൾ പ്രയോജനപ്പെടുത്തി, ഈ സംവിധാനം മണ്ണിന് അനുയോജ്യമായ വിള കലണ്ടറുകളും തത്സമയ മാർക്കറ്റ് ഇന്റലിജൻസും നൽകുന്നു, ഇത് ആദ്യ-തല പിന്തുണ ഓട്ടോമേറ്റ് ചെയ്യാനും ന്യായമായ വിപണി പ്രവേശനം ഉറപ്പാക്കാനും ആത്യന്തികമായി കർഷകരുടെ ഉപജീവനമാർഗ്ഗം വർദ്ധിപ്പിക്കാനും ലക്ഷ്യമിടുന്നു.",
+                summary_img_caption: "രാജസ്ഥാനിലെ കർഷകരെ സാങ്കേതികവിദ്യ ഉപയോഗിച്ച് ശാക്തീകരിക്കുന്നു.",
+                challenge_title: "വെല്ലുവിളി: രണ്ട് കാലഘട്ടങ്ങളുടെ ഒരു കഥ",
+                challenge_p1: "അഗ്രി-കണക്റ്റിന്റെ ആവശ്യകത മനസ്സിലാക്കാൻ, ചരിത്രപരവും വ്യവസ്ഥാപരവുമായ പ്രശ്നങ്ങളും രാജസ്ഥാനിലെ കർഷകർ ഇന്ന് നേരിടുന്ന അടിയന്തിരവും ഡാറ്റാധിഷ്ഠിതവുമായ പ്രശ്നങ്ങളും ഞങ്ങൾ വിശകലനം ചെയ്യണം.",
+                challenge_subtitle1: "ചരിത്രപരമായ പശ്ചാത്തലം: നിരന്തരമായ വിവര വിടവ്",
+                challenge_p2: "ദശാബ്ദങ്ങളായി, കർഷകർ കാര്യമായ പോരായ്മകളോടെയാണ് പ്രവർത്തിക്കുന്നത്. പരമ്പരാഗത പിന്തുണാ സംവിധാനങ്ങൾ വേഗത കുറഞ്ഞതും അമിതഭാരമുള്ളതുമാണ്, ഇത് അളക്കാവുന്ന നഷ്ടങ്ങളിലേക്ക് നയിക്കുന്നു. ഞങ്ങളുടെ പ്രോജക്റ്റ് ശാശ്വതമായി പരിഹരിക്കാൻ ലക്ഷ്യമിടുന്ന ദീർഘകാല വെല്ലുവിളികളെ ഇനിപ്പറയുന്ന മെട്രിക്കുകൾ പ്രതിനിധീകരിക്കുന്നു:",
+                hist_kpi1: "കീടനിയന്ത്രണം പോലുള്ള നിർണായക വിഷയങ്ങളിൽ സമയബന്ധിതമായ വിദഗ്ദ്ധോപദേശം കർഷകർക്ക് ലഭ്യമല്ല.",
+                hist_kpi2: "അമിതഭാരമുള്ള കൃഷി ഓഫീസർമാരിൽ നിന്നുള്ള പ്രതികരണങ്ങൾക്കായി കാത്തിരുന്ന് കർഷകർക്ക് മണിക്കൂറുകൾ പാഴാകുന്നു.",
+                hist_kpi3: "കാലാവസ്ഥയെയും രോഗങ്ങളെയും കുറിച്ചുള്ള വിവരങ്ങൾ വൈകുന്നത് കാരണം വിളനാശം സംഭവിക്കാനുള്ള സാധ്യത.",
+                challenge_subtitle2: "നിലവിലെ ആവശ്യങ്ങൾ: രാജസ്ഥാനിൽ നിന്നുള്ള തത്സമയ ഡാറ്റ",
+                challenge_p3: "രാജസ്ഥാനിലെ 10,000-ൽ അധികം കർഷകരുമായുള്ള ഞങ്ങളുടെ നേരിട്ടുള്ള ഇടപെടലുകൾ അവരുടെ ആധുനിക വെല്ലുവിളികളെ ചൂണ്ടിക്കാണിക്കുന്നു. അവർക്ക് ഇപ്പോൾ ഏറ്റവും കൂടുതൽ സഹായം ആവശ്യമുള്ളത് എവിടെയാണെന്ന് താഴെയുള്ള ഡാറ്റ കാണിക്കുന്നു.",
+                chart1_title: "സാധാരണ കർഷക ചോദ്യങ്ങൾ (രാജസ്ഥാൻ ഡാറ്റ)",
+                chart1_subtitle: "10,000+ തത്സമയ കർഷക ഇടപെടലുകളുടെ വിശകലനത്തെ അടിസ്ഥാനമാക്കിയുള്ള വിതരണം.",
+                chart2_title: "വിവരങ്ങൾ വൈകുന്നതിന്റെ സാമ്പത്തികച്ചെലവ്",
+                chart2_subtitle: "നിർണായക ഉപദേശത്തിനായി കാത്തിരിക്കുന്നതിനാൽ ഒരു ഹെക്ടറിന് പ്രതിദിന വരുമാന നഷ്ടത്തിന്റെ വിശകലനം.",
+                solution_title: "പരിഹാരം: ഒരു എഐ-പവർഡ് ഡിജിറ്റൽ അസിസ്റ്റന്റ്",
+                solution_p1: `"അഗ്രി-കണക്ട്" കർഷക-പ്രഥമ സമീപനത്തോടെയാണ് രൂപകൽപ്പന ചെയ്തിരിക്കുന്നത്. ഇതിന്റെ പ്രധാന സവിശേഷതകൾ ബഹുഭാഷാ, ഡാറ്റാ സമ്പന്നമായ ഒരു പ്ലാറ്റ്ഫോം ഉപയോഗിച്ച് ചരിത്രപരവും നിലവിലുള്ളതുമായ വെല്ലുവിളികളെ നേരിടാൻ നിർമ്മിച്ചതാണ്.`,
+                feature1_title: "ബഹുഭാഷാ ഇന്റർഫേസ്",
+                feature1_desc: "ഹിന്ദി, മലയാളം, ഇംഗ്ലീഷ് എന്നിവയ്ക്ക് പൂർണ്ണ പിന്തുണ, എല്ലാ ഉപയോക്താക്കൾക്കും പ്രവേശനക്ഷമത ഉറപ്പാക്കുന്നു.",
+                feature2_title: "സ്വാഭാവിക ഭാഷാ ചോദ്യം",
+                feature2_desc: "സംഭാഷണ ഭാഷയിൽ ടെക്സ്റ്റ് വഴിയോ ശബ്ദം വഴിയോ ചോദ്യങ്ങൾ ചോദിക്കുക, സാക്ഷരതാ തടസ്സങ്ങൾ നീക്കുക.",
+                feature3_title: "മാർക്കറ്റ് ഇന്റലിജൻസ്",
+                feature3_desc: "ദിവസേനയുള്ള മണ്ഡി വിലകൾ, എംഎസ്പി വിവരങ്ങൾ, ഡിമാൻഡ് പ്രവചനങ്ങൾ എന്നിവ നൽകി കർഷകരെ ഇടനിലക്കാരെ ഒഴിവാക്കാൻ സഹായിക്കുന്നു.",
+                feature4_title: "ഹൈപ്പർ-ലോക്കൽ സന്ദർഭം",
+                feature4_desc: "വ്യക്തിഗത ഉപദേശത്തിനായി കർഷകന്റെ സ്ഥലം, മണ്ണിന്റെ തരം, കാലം എന്നിവ പരിഗണിക്കുന്നു.",
+                arch_title: "സിസ്റ്റം ആർക്കിടെക്ചറും വർക്ക്ഫ്ലോയും",
+                arch_p1: "അഗ്രി-കണക്ട് പ്ലാറ്റ്ഫോം സ്കേലബിലിറ്റിക്കും തത്സമയ പ്രോസസ്സിംഗിനുമായി രൂപകൽപ്പന ചെയ്ത ഒരു മോഡുലാർ, ക്ലൗഡ്-നേറ്റീവ് ആർക്കിടെക്ചറിലാണ് നിർമ്മിച്ചിരിക്കുന്നത്. താഴെയുള്ള വർക്ക്ഫ്ലോ ഒരു കർഷകന്റെ ചോദ്യത്തിന്റെ ഇൻപുട്ട് മുതൽ പരിഹാരം വരെയുള്ള യാത്രയെ ചിത്രീകരിക്കുന്നു, ഇത് കോർ എഐ പ്രോസസ്സിംഗും ആവശ്യമുള്ളപ്പോൾ മനുഷ്യ വൈദഗ്ധ്യത്തിന്റെ തടസ്സമില്ലാത്ത സംയോജനവും എടുത്തുകാണിക്കുന്നു.",
+                step1_title: "1. കർഷക ഇൻപുട്ട്",
+                step1_desc: "മൊബൈൽ ആപ്പ് വഴി ടെക്സ്റ്റ്, വോയ്സ് അല്ലെങ്കിൽ ഇമേജ് വഴിയുള്ള ചോദ്യം.",
+                step2_title: "2. പ്രീ-പ്രോസസ്സിംഗ്",
+                step2_desc: "ഡാറ്റ വൃത്തിയാക്കുന്നു. സംഭാഷണം ടെക്സ്റ്റാക്കി മാറ്റുകയും ചിത്രങ്ങൾ വിശകലനം ചെയ്യുകയും ചെയ്യുന്നു.",
+                step3_title: "3. എഐ കോർ എഞ്ചിൻ",
+                step3_desc: "എൽഎൽഎം മികച്ച ഉത്തരം കണ്ടെത്താൻ ലൊക്കേഷൻ, മണ്ണിന്റെ തരം, മാർക്കറ്റ് ഡാറ്റ എന്നിവ ഉപയോഗിച്ച് ചോദ്യം സമ്പുഷ്ടമാക്കുന്നു.",
+                step4_title: "4. പ്രവർത്തനക്ഷമമായ ഉപദേശം",
+                step4_desc: "വ്യക്തവും സംക്ഷിപ്തവുമായ ഉത്തരം കർഷകന്റെ ആപ്പിലേക്ക് അവരുടെ മാതൃഭാഷയിൽ അയയ്ക്കുന്നു.",
+                escalation_title: "മാനുഷിക ഇടപെടൽ",
+                escalation_desc: "എഐയുടെ ആത്മവിശ്വാസം കുറവാണെങ്കിൽ, കേസ് പൂർണ്ണമായും ഒരു പ്രാദേശിക കാർഷിക വിദഗ്ദ്ധന് അവലോകനത്തിനായി കൈമാറുന്നു.",
+                impact_title: "പ്രതീക്ഷിത സ്വാധീനവും ഡാറ്റാധിഷ്ഠിത പ്രൊജക്ഷനുകളും",
+                impact_p1: "അഗ്രി-കണക്ട് വ്യക്തമായ നേട്ടങ്ങൾ നൽകുന്നതിനാണ് രൂപകൽപ്പന ചെയ്തിരിക്കുന്നത്. അനുയോജ്യമായ വിവരങ്ങളിലേക്കും വിപണി ഡാറ്റയിലേക്കും നേരിട്ടുള്ള പ്രവേശനം നൽകുന്നതിലൂടെ, പ്ലാറ്റ്ഫോം കാർഷിക രീതികൾ മെച്ചപ്പെടുത്തുക മാത്രമല്ല, കർഷകരുടെ വരുമാനം ഗണ്യമായി വർദ്ധിപ്പിക്കുകയും ചെയ്യും. ഇനിപ്പറയുന്ന ഡാറ്റാ പോയിന്റുകളും പ്രൊജക്ഷനുകളും പ്രതീക്ഷിക്കുന്ന സ്വാധീനം അളക്കുന്നു.",
+                impact_kpi1: "വിളവ് വർദ്ധനവ് പ്രതീക്ഷിക്കുന്നു",
+                impact_kpi2: "കർഷക വരുമാനത്തിൽ സാധ്യമായ വർദ്ധനവ്",
+                impact_kpi3: "സർക്കാർ സബ്സിഡികളിലേക്ക് വേഗത്തിൽ പ്രവേശനം",
+                impact_kpi4: "കീടനാശിനി ഉപയോഗത്തിൽ കുറവ്",
+                chart3_title: "ചോദ്യം പരിഹരിക്കുന്നതിനുള്ള സമയ വിശകലനം",
+                chart3_subtitle: "ഒരു നിർണായക ചോദ്യത്തിന് വിശ്വസനീയമായ ഉത്തരം ലഭിക്കാൻ എടുക്കുന്ന ശരാശരി സമയത്തിൽ കാര്യമായ കുറവ്.",
+                chart4_title: "കർഷക ലാഭക്ഷമത വിശകലനം",
+                chart4_subtitle: "അഗ്രി-കണക്ട് മാർക്കറ്റ് ലിങ്കേജോടുകൂടിയും അല്ലാതെയും ഒരു ഹെക്ടറിന് പ്രതീക്ഷിക്കുന്ന വരുമാനം.",
+                demo_title: "അഗ്രി-കണക്ട്: ലൈവ് ഡെമോ ✨",
+                demo_p1: "അഗ്രി-കണക്റ്റിന്റെ ശക്തി നേരിട്ട് അനുഭവിക്കുക. രാജസ്ഥാനിലെ കൃഷിയെക്കുറിച്ച് ഒരു ചോദ്യം ചോദിക്കുകയും തൽക്ഷണവും എഐ-നിർമ്മിതവുമായ ശുപാർശ നേടുകയും ചെയ്യുക. ഏറ്റവും പ്രസക്തവും കാലികവുമായ വിവരങ്ങൾ നൽകുന്നതിന് ഈ ഡെമോ ഗൂഗിൾ സെർച്ച് ഗ്രൗണ്ടിംഗോടുകൂടിയ ജെമിനി എപിഐ ഉപയോഗിക്കുന്നു.",
+                demo_label: "നിങ്ങളുടെ ചോദ്യം ചോദിക്കുക:",
+                demo_placeholder: "ഉദാഹരണത്തിന്, അജ്മീറിൽ കടുക് നടാൻ ഏറ്റവും അനുയോജ്യമായ സമയം ഏതാണ്? അല്ലെങ്കിൽ എന്റെ പരുത്തി ഇലകളിൽ ദ്വാരങ്ങൾ എന്തുകൊണ്ട്?",
+                demo_example_text: "അല്ലെങ്കിൽ ഒരു ഉദാഹരണം പരീക്ഷിക്കുക:",
+                demo_example1: "ഡ്രിപ്പ് ഇറിഗേഷൻ സബ്സിഡികൾ?",
+                demo_example2: "പരുത്തിയിലെ വെള്ളീച്ച?",
+                demo_button: "✨ എഐ ഉപദേശം നേടുക",
+                demo_response_title: "എഐ പ്രതികരണം:",
+                demo_response_placeholder: "നിങ്ങളുടെ എഐ-പവർഡ് ഉപദേശം ഇവിടെ ദൃശ്യമാകും...",
+                footer_p1: "© 2024 അഗ്രി-കണക്ട് പ്രോജക്റ്റ്. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.",
+                footer_p2: "ഒരു കർഷക-പ്രഥമ സംരംഭം",
+                charts: {
+                    query_pie_labels: ['വിപണി ബന്ധവും വിലകളും', 'വിളയും മണ്ണും ഉപദേശം', 'കീടങ്ങളും രോഗങ്ങളും', 'സർക്കാർ പദ്ധതികൾ', 'കാലാവസ്ഥ', 'മറ്റുള്ളവ'],
+                    cost_delay_labels: ['കീടങ്ങളുടെ ആക്രമണം', 'വിതയ്ക്കുന്ന സമയത്തെ ചോദ്യം', 'സബ്സിഡി വിവരങ്ങളിലെ കാലതാമസം'],
+                    cost_delay_dataset_label: 'പ്രതിദിന നഷ്ട സാധ്യത (₹)',
+                    resolution_labels: ['പരമ്പരാഗത രീതികൾ', 'അഗ്രി-കണക്ട്'],
+                    resolution_dataset_label: 'ശരാശരി പരിഹാര സമയം (മിനിറ്റ്)',
+                    profit_labels: ['ഗോതമ്പ്', 'കടുക്', 'പരുത്തി'],
+                    profit_dataset_label1: 'അഗ്രി-കണക്ട് ഇല്ലാത്ത വരുമാനം (₹)',
+                    profit_dataset_label2: 'അഗ്രി-കണക്ട് ഉള്ള വരുമാനം (₹)',
+                }
+            },
+            kn: {
+                main_title: "ಅಗ್ರಿ-ಕನೆಕ್ಟ್",
+                subtitle: "ಆಧುನಿಕ ಕೃಷಿಗಾಗಿ AI-ಚಾಲಿತ ಸಲಹಾ ವ್ಯವಸ್ಥೆ",
+                summary_title: "ಕಾರ್ಯನಿರ್ವಾಹಕ ಸಾರಾಂಶ",
+                summary_p1: "ಮೂಲತಃ ಕೇರಳದ ಕೃಷಿ ಭೂದೃಶ್ಯಕ್ಕಾಗಿ ಕಲ್ಪಿಸಲಾದ, ಅಗ್ರಿ-ಕನೆಕ್ಟ್ ಯೋಜನೆಯನ್ನು ಅಳವಡಿಸಲಾಗಿದೆ ಮತ್ತು ಈಗ ರಾಜಸ್ಥಾನದಲ್ಲಿ 10,000 ಕ್ಕೂ ಹೆಚ್ಚು ರೈತರ ಸಂವಹನಗಳಿಂದ ನೈಜ-ಸಮಯದ ಡೇಟಾದೊಂದಿಗೆ ಪ್ರಾರಂಭಿಸಲಾಗುತ್ತಿದೆ, ಅವರ ಅತ್ಯಂತ ತక్షణ ಮತ್ತು ಒತ್ತುವ ಸವಾಲುಗಳನ್ನು ಪರಿಹರಿಸುತ್ತಿದೆ. ನಮ್ಮ ಡೇಟಾವು ಎರಡು ನಿರ್ಣಾಯಕ ನೋವಿನ ಅಂಶಗಳನ್ನು ಬಹಿರಂಗಪಡಿಸುತ್ತದೆ: ನಿರ್ದಿಷ್ಟ ಮಣ್ಣಿನ ಪ್ರಕಾರಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಬೆಳೆ ಬಿತ್ತನೆ ಸಮಯವನ್ನು ನಿರ್ಧರಿಸುವುದು ಮತ್ತು ಮಧ್ಯವರ್ತಿಗಳು ಲಾಭವನ್ನು ಕಡಿಮೆ ಮಾಡುವ ಅಪಾರದರ್ಶಕ ಸರ್ಕಾರಿ ಖರೀದಿ ಪ್ರಕ್ರಿಯೆಗಳನ್ನು ನ್ಯಾವಿಗೇಟ್ ಮಾಡುವುದು.",
+                summary_p2: `ಈ ವರದಿಯು "ಅಗ್ರಿ-ಕನೆಕ್ಟ್" ಅನ್ನು ವಿವರಿಸುತ್ತದೆ, ಇದು ಈ ಅಂತರವನ್ನು ಕಡಿಮೆ ಮಾಡಲು ವಿನ್ಯಾಸಗೊಳಿಸಲಾದ ಬಹುಭಾಷಾ AI-ಚಾಲಿತ ಸಲಹಾ ವ್ಯವಸ್ಥೆಯಾಗಿದೆ. ಹಿಂದಿ, ಮಲಯಾಳಂ ಮತ್ತು ಇಂಗ್ಲಿಷ್ ಅನ್ನು ಬೆಂಬಲಿಸುವ ಈ ವೇದಿಕೆಯು ರೈತರಿಗೆ ಸಂಕೀರ್ಣವಾದ ಕೃಷಿ ಮತ್ತು ವಾಣಿಜ್ಯ ಪ್ರಶ್ನೆಗಳಿಗೆ ಪಠ್ಯ, ಧ್ವನಿ ಅಥವಾ ಚಿತ್ರದ ಮೂಲಕ ತ್ವರಿತ, ಸಂದರ್ಭ-ಅರಿವಿನ ಉತ್ತರಗಳನ್ನು ಪಡೆಯಲು ಅಧಿಕಾರ ನೀಡುತ್ತದೆ.`,
+                summary_p3: "ಸೂಕ್ಷ್ಮ-ಶ್ರುತಿಗೊಳಿಸಿದ ಎಲ್‌ಎಲ್‌ಎಮ್‌ಗಳನ್ನು ಬಳಸಿಕೊಳ್ಳುವ ಮೂಲಕ, ವ್ಯವಸ್ಥೆಯು ಮಣ್ಣು-ನಿರ್ದಿಷ್ಟ ಬೆಳೆ ಕ್ಯಾಲೆಂಡರ್‌ಗಳನ್ನು ಮತ್ತು ನೈಜ-ಸಮಯದ ಮಾರುಕಟ್ಟೆ ಬುದ್ಧಿವಂತಿಕೆಯನ್ನು ಒದಗಿಸುತ್ತದೆ, ಮೊದಲ-ಹಂತದ ಬೆಂಬಲವನ್ನು ಸ್ವಯಂಚಾಲಿತಗೊಳಿಸುವುದು, ನ್ಯಾಯಯುತ ಮಾರುಕಟ್ಟೆ ಪ್ರವೇಶವನ್ನು ಖಚಿತಪಡಿಸುವುದು ಮತ್ತು ಅಂತಿಮವಾಗಿ ರೈತರ ಜೀವನೋಪಾಯವನ್ನು ಹೆಚ್ಚಿಸುವ ಗುರಿಯನ್ನು ಹೊಂದಿದೆ.",
+                summary_img_caption: "ರಾಜಸ್ಥಾನದ ರೈತರನ್ನು ತಂತ್ರಜ್ಞಾನದಿಂದ ಸಬಲೀಕರಣಗೊಳಿಸುವುದು.",
+                challenge_title: "ಸವಾಲು: ಎರಡು ಕಾಲಾವಧಿಯ ಕಥೆ",
+                challenge_p1: "ಅಗ್ರಿ-ಕನೆಕ್ಟ್‌ನ ಅಗತ್ಯವನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು, ನಾವು ಐತಿಹಾಸಿಕ, ವ್ಯವಸ್ಥಿತ ಸಮಸ್ಯೆಗಳು ಮತ್ತು ರಾಜಸ್ಥಾನದ ರೈತರು ಇಂದು ಎದುರಿಸುತ್ತಿರುವ ತక్షణ, ಡೇಟಾ-ಚಾಲಿತ ಸಮಸ್ಯೆಗಳನ್ನು ವಿಶ್ಲೇಷಿಸಬೇಕು.",
+                challenge_subtitle1: "ಐತಿಹಾಸಿಕ ಸಂದರ್ಭ: ನಿರಂತರ ಮಾಹಿತಿ ಅಂತರ",
+                challenge_p2: "ದಶಕಗಳಿಂದ, ರೈತರು ಗಮನಾರ್ಹ ಅನಾನುಕೂಲತೆಗಳೊಂದಿಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತಿದ್ದಾರೆ. ಸಾಂಪ್ರದಾಯಿಕ ಬೆಂಬಲ ವ್ಯವಸ್ಥೆಗಳು ನಿಧಾನ ಮತ್ತು გადატვირთულია, ಇದು ಪರಿಮಾಣಾತ್ಮಕ ನಷ್ಟಗಳಿಗೆ ಕಾರಣವಾಗುತ್ತದೆ. ನಮ್ಮ ಯೋಜನೆಯು ಶಾಶ್ವತವಾಗಿ ಪರಿಹರಿಸುವ ಗುರಿಯನ್ನು ಹೊಂದಿರುವ ದೀರ್ಘಕಾಲೀನ ಸವಾಲುಗಳನ್ನು ಈ ಕೆಳಗಿನ ಮೆಟ್ರಿಕ್‌ಗಳು ಪ್ರತಿನಿಧಿಸುತ್ತವೆ:",
+                hist_kpi1: "ಕೀಟ ನಿಯಂತ್ರಣದಂತಹ ನಿರ್ಣಾಯಕ ಸಮಸ್ಯೆಗಳಿಗೆ ರೈತರಿಗೆ ಸಮಯೋಚಿತ, ತಜ್ಞರ ಸಲಹೆಗೆ ಪ್ರವೇಶವಿಲ್ಲ.",
+                hist_kpi2: "ಹೆಚ್ಚು ಹೊರೆಯಾದ ಕೃಷಿ ಅಧಿಕಾರಿಗಳಿಂದ ಪ್ರತಿಕ್ರಿಯೆಗಾಗಿ ಕಾಯುತ್ತಿರುವ ರೈತರಿಂದ ಗಂಟೆಗಳು ವ್ಯರ್ಥವಾಗುತ್ತವೆ.",
+                hist_kpi3: "ಹವಾಮಾನ ಮತ್ತು ರೋಗಗಳ ಬಗ್ಗೆ ವಿಳಂಬವಾದ ಮಾಹಿತಿಯಿಂದಾಗಿ ಸಂಭಾವ್ಯ ಬೆಳೆ ನಷ್ಟ.",
+                challenge_subtitle2: "ಪ್ರಸ್ತುತ ಅಗತ್ಯಗಳು: ರಾಜಸ್ಥಾನದಿಂದ ನೈಜ-ಸಮಯದ ಡೇಟಾ",
+                challenge_p3: "ರಾಜಸ್ಥಾನದಲ್ಲಿ 10,000 ಕ್ಕೂ ಹೆಚ್ಚು ರೈತರೊಂದಿಗಿನ ನಮ್ಮ ನೇರ ಸಂವಹನವು ಅವರ ಆಧುನಿಕ ಸವಾಲುಗಳನ್ನು ಗುರುತಿಸುತ್ತದೆ. ಕೆಳಗಿನ ಡೇಟಾವು ಅವರಿಗೆ ಇದೀಗ ಹೆಚ್ಚು ಸಹಾಯ ಬೇಕಾದ ಸ್ಥಳವನ್ನು ತೋರಿಸುತ್ತದೆ.",
+                chart1_title: "ಸಾಮಾನ್ಯ ರೈತ ಪ್ರಶ್ನೆಗಳು (ರಾಜಸ್ಥಾನ ಡೇಟಾ)",
+                chart1_subtitle: "10,000+ ನೈಜ-ಸಮಯದ ರೈತ ಸಂವಹನಗಳ ವಿಶ್ಲೇಷಣೆಯ ಆಧಾರದ ಮೇಲೆ ವಿತರಣೆ.",
+                chart2_title: "ಮಾಹಿತಿ ವಿಳಂಬದ ಆರ್ಥಿಕ ವೆಚ್ಚ",
+                chart2_subtitle: "ನಿರ್ಣಾಯಕ ಸಲಹೆಗಾಗಿ ಕಾಯುವುದರಿಂದ ಪ್ರತಿ ಹೆಕ್ಟೇರ್‌ಗೆ ಸಂಭಾವ್ಯ ದೈನಂದಿನ ಆದಾಯ ನಷ್ಟದ ವಿಶ್ಲೇಷಣೆ.",
+                solution_title: "ಪರಿಹಾರ: AI-ಚಾಲಿತ ಡಿಜಿಟಲ್ ಸಹಾಯಕ",
+                solution_p1: `"ಅಗ್ರಿ-ಕನೆಕ್ಟ್" ಅನ್ನು ರೈತ-ಮೊದಲ ವಿಧಾನದೊಂದಿಗೆ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ. ಇದರ ಪ್ರಮುಖ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಬಹುಭಾಷಾ, ಡೇಟಾ-ಭರಿತ ವೇದಿಕೆಯೊಂದಿಗೆ ಐತಿಹಾಸಿಕ ಮತ್ತು ಪ್ರಸ್ತುತ ಸವಾಲುಗಳನ್ನು ಪರಿಹರಿಸಲು ನಿರ್ಮಿಸಲಾಗಿದೆ.`,
+                feature1_title: "ಬಹುಭಾಷಾ ಇಂಟರ್ಫೇಸ್",
+                feature1_desc: "ಹಿಂದಿ, ಮಲಯಾಳಂ ಮತ್ತು ಇಂಗ್ಲಿಷ್‌ಗೆ ಪೂರ್ಣ ಬೆಂಬಲ, ಎಲ್ಲಾ ಬಳಕೆದಾರರಿಗೆ ಪ್ರವೇಶವನ್ನು ಖಚಿತಪಡಿಸುತ್ತದೆ.",
+                feature2_title: "ನೈಸರ್ಗಿಕ ಭಾಷಾ ಪ್ರಶ್ನೆ",
+                feature2_desc: "ಪಠ್ಯ ಅಥವಾ ಧ್ವನಿ ಮೂಲಕ ಸಂಭಾಷಣಾ ಭಾಷೆಯಲ್ಲಿ ಪ್ರಶ್ನೆಗಳನ್ನು ಕೇಳಿ, ಸಾಕ್ಷರತಾ ಅಡೆತಡೆಗಳನ್ನು ತೆಗೆದುಹಾಕಿ.",
+                feature3_title: "ಮಾರುಕಟ್ಟೆ ಬುದ್ಧಿವಂತಿಕೆ",
+                feature3_desc: "ರೈತರಿಗೆ ಮಧ್ಯವರ್ತಿಗಳನ್ನು ಬೈಪಾಸ್ ಮಾಡಲು ಸಹಾಯ ಮಾಡಲು ದೈನಂದಿನ ಮಂಡಿ ಬೆಲೆಗಳು, MSP ಮಾಹಿತಿ ಮತ್ತು ಬೇಡಿಕೆಯ ಮುನ್ಸೂಚನೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ.",
+                feature4_title: "ಹೈಪರ್-ಲೋಕಲ್ ಸಂದರ್ಭ",
+                feature4_desc: "ವೈಯಕ್ತಿಕಗೊಳಿಸಿದ ಸಲಹೆಗಾಗಿ ರೈತರ ಸ್ಥಳ, ಮಣ್ಣಿನ ಪ್ರಕಾರ ಮತ್ತು ಋತುವನ್ನು ಪರಿಗಣಿಸುತ್ತದೆ.",
+                arch_title: "ಸಿಸ್ಟಮ್ ಆರ್ಕಿಟೆಕ್ಚರ್ ಮತ್ತು ವರ್ಕ್ಫ್ಲೋ",
+                arch_p1: "ಅಗ್ರಿ-ಕನೆಕ್ಟ್ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ ಅನ್ನು ಮಾಡ್ಯುಲರ್, ಕ್ಲೌಡ್-ಸ್ಥಳೀಯ ಆರ್ಕಿಟೆಕ್ಚರ್‌ನಲ್ಲಿ ನಿರ್ಮಿಸಲಾಗಿದೆ, ಇದನ್ನು ಸ್ಕೇಲೆಬಿಲಿಟಿ ಮತ್ತು ನೈಜ-ಸಮಯದ ಪ್ರಕ್ರಿಯೆಗಾಗಿ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ. ಕೆಳಗಿನ ವರ್ಕ್‌ಫ್ಲೋ ರೈತರ ಪ್ರಶ್ನೆಯ ಪ್ರಯಾಣವನ್ನು ಇನ್‌ಪುಟ್‌ನಿಂದ ರೆಸಲ್ಯೂಶನ್‌ವರೆಗೆ ವಿವರಿಸುತ್ತದೆ, ಕೋರ್ AI ಪ್ರೊಸೆಸಿಂಗ್ ಮತ್ತು ಅಗತ್ಯವಿದ್ದಾಗ ಮಾನವ ಪರಿಣತಿಯ ತಡೆರಹಿತ ಏಕೀಕರಣವನ್ನು ಎತ್ತಿ ತೋರಿಸುತ್ತದೆ.",
+                step1_title: "1. ರೈತ ಇನ್ಪುಟ್",
+                step1_desc: "ಮೊಬೈಲ್ ಅಪ್ಲಿಕೇಶನ್ ಮೂಲಕ ಪಠ್ಯ, ಧ್ವನಿ ಅಥವಾ ಚಿತ್ರದ ಮೂಲಕ ಪ್ರಶ್ನೆ.",
+                step2_title: "2. ಪೂರ್ವ-ಸಂಸ್ಕರಣೆ",
+                step2_desc: "ಡೇಟಾವನ್ನು ಸ್ವಚ್ಛಗೊಳಿಸಲಾಗುತ್ತದೆ. ಭಾಷಣವನ್ನು ಪಠ್ಯಕ್ಕೆ ಪರಿವರ್ತಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ಚಿತ್ರಗಳನ್ನು ವಿಶ್ಲೇಷಿಸಲಾಗುತ್ತದೆ.",
+                step3_title: "3. AI ಕೋರ್ ಎಂಜಿನ್",
+                step3_desc: "ಉತ್ತಮ ಉತ್ತರವನ್ನು ಕಂಡುಹಿಡಿಯಲು ಎಲ್ಎಲ್ಎಂ ಸ್ಥಳ, ಮಣ್ಣಿನ ಪ್ರಕಾರ ಮತ್ತು ಮಾರುಕಟ್ಟೆ ಡೇಟಾದೊಂದಿಗೆ ಪ್ರಶ್ನೆಯನ್ನು ಸಮೃದ್ಧಗೊಳಿಸುತ್ತದೆ.",
+                step4_title: "4. ಕಾರ್ಯಸಾಧ್ಯವಾದ ಸಲಹೆ",
+                step4_desc: "ಸ್ಪಷ್ಟ, ಸಂಕ್ಷಿಪ್ತ ಉತ್ತರವನ್ನು ರೈತರ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಅವರ ಸ್ಥಳೀಯ ಭಾಷೆಯಲ್ಲಿ ಕಳುಹಿಸಲಾಗುತ್ತದೆ.",
+                escalation_title: "ಮಾನವ ಹಸ್ತಕ್ಷೇಪ",
+                escalation_desc: "AI ಯ ವಿಶ್ವಾಸ ಕಡಿಮೆಯಿದ್ದರೆ, ಸಂಪೂರ್ಣ ಪ್ರಕರಣವನ್ನು ವಿಮರ್ಶೆಗಾಗಿ ಸ್ಥಳೀಯ ಕೃಷಿ ತಜ್ಞರಿಗೆ ಮನಬಂದಂತೆ ರವಾನಿಸಲಾಗುತ್ತದೆ.",
+                impact_title: "ನಿರೀಕ್ಷಿತ ಪರಿಣಾಮ ಮತ್ತು ಡೇಟಾ-ಚಾಲಿತ ಪ್ರೊಜೆಕ್ಷನ್‌ಗಳು",
+                impact_p1: "ಅಗ್ರಿ-ಕನೆಕ್ಟ್ ಅನ್ನು ಸ್ಪಷ್ಟ ಪ್ರಯೋಜನಗಳನ್ನು ನೀಡಲು ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ. ಸೂಕ್ತವಾದ ಮಾಹಿತಿ ಮತ್ತು ಮಾರುಕಟ್ಟೆ ಡೇಟಾಗೆ ನೇರ ಪ್ರವೇಶವನ್ನು ಒದಗಿಸುವ ಮೂಲಕ, ವೇದಿಕೆಯು ಕೃಷಿ ಪದ್ಧತಿಗಳನ್ನು ಸುಧಾರಿಸುವುದಲ್ಲದೆ ರೈತರ ಆದಾಯವನ್ನು ಗಮನಾರ್ಹವಾಗಿ ಹೆಚ್ಚಿಸುತ್ತದೆ. ಕೆಳಗಿನ ಡೇಟಾ ಪಾಯಿಂಟ್‌ಗಳು ಮತ್ತು ಪ್ರೊಜೆಕ್ಷನ್‌ಗಳು ನಿರೀಕ್ಷಿತ ಪರಿಣಾಮವನ್ನು ಪ್ರಮಾಣೀಕರಿಸುತ್ತವೆ.",
+                impact_kpi1: "ಬೆಳೆ ಇಳುವರಿಯಲ್ಲಿ ಯೋಜಿತ ಹೆಚ್ಚಳ",
+                impact_kpi2: "ರೈತರ ಆದಾಯದಲ್ಲಿ ಸಂಭಾವ್ಯ ಹೆಚ್ಚಳ",
+                impact_kpi3: "ಸರ್ಕಾರಿ ಸಬ್ಸಿಡಿಗಳಿಗೆ ವೇಗದ ಪ್ರವೇಶ",
+                impact_kpi4: "ಕೀಟನಾಶಕ ಬಳಕೆಯಲ್ಲಿ ಕಡಿತ",
+                chart3_title: "ಪ್ರಶ್ನೆ ಪರಿಹಾರ ಸಮಯ ವಿಶ್ಲೇಷಣೆ",
+                chart3_subtitle: "ಒಂದು ನಿರ್ಣಾಯಕ ಪ್ರಶ್ನೆಗೆ ವಿಶ್ವಾಸಾರ್ಹ ಉತ್ತರವನ್ನು ಪಡೆಯಲು ತೆಗೆದುಕೊಳ್ಳುವ ಸರಾಸರಿ ಸಮಯದಲ್ಲಿ ತೀವ್ರ ಕಡಿತ.",
+                chart4_title: "ರೈತರ ಲಾಭದಾಯಕತೆ ವಿಶ್ಲೇಷಣೆ",
+                chart4_subtitle: "ಅಗ್ರಿ-ಕನೆಕ್ಟ್ ಮಾರುಕಟ್ಟೆ ಸಂಪರ್ಕದೊಂದಿಗೆ ಮತ್ತು ಇಲ್ಲದೆ ಪ್ರತಿ ಹೆಕ್ಟೇರ್‌ಗೆ ಯೋಜಿತ ಆದಾಯ.",
+                demo_title: "ಅಗ್ರಿ-ಕನೆಕ್ಟ್: ಲೈವ್ ಡೆಮೊ ✨",
+                demo_p1: "ಅಗ್ರಿ-ಕನೆಕ್ಟ್‌ನ ಶಕ್ತಿಯನ್ನು ನೇರವಾಗಿ ಅನುಭವಿಸಿ. ರಾಜಸ್ಥಾನದಲ್ಲಿ ಕೃಷಿ ಬಗ್ಗೆ ಪ್ರಶ್ನೆ ಕೇಳಿ ಮತ್ತು ತ್ವರಿತ, AI-ರಚಿತ ಶಿಫಾರಸು ಪಡೆಯಿರಿ. ಈ ಡೆಮೊ ಅತ್ಯಂತ ಪ್ರಸ್ತುತ ಮತ್ತು ನವೀಕೃತ ಮಾಹಿತಿಯನ್ನು ಒದಗಿಸಲು Google ಹುಡುಕಾಟ ಗ್ರೌಂಡಿಂಗ್‌ನೊಂದಿಗೆ ಜೆಮಿನಿ API ಅನ್ನು ಬಳಸುತ್ತದೆ.",
+                demo_label: "ನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಕೇಳಿ:",
+                demo_placeholder: "ಉದಾಹರಣೆಗೆ, ಅಜ್ಮೀರ್‌ನಲ್ಲಿ ಸಾಸಿವೆ ನೆಡಲು ಉತ್ತಮ ಸಮಯ ಯಾವುದು? ಅಥವಾ ನನ್ನ ಹತ್ತಿ ಎಲೆಗಳಲ್ಲಿ ರಂಧ್ರಗಳು ಏಕೆ ಇವೆ?",
+                demo_example_text: "ಅಥವಾ ಒಂದು ಉದಾಹರಣೆ ಪ್ರಯತ್ನಿಸಿ:",
+                demo_example1: "ಡ್ರಿಪ್ ಇರಿಗೇಷನ್ ಸಬ್ಸಿಡಿಗಳು?",
+                demo_example2: "ಹತ್ತಿಯಲ್ಲಿ ಬಿಳಿನೊಣ?",
+                demo_button: "✨ AI ಸಲಹೆ ಪಡೆಯಿರಿ",
+                demo_response_title: "AI ಪ್ರತಿಕ್ರಿಯೆ:",
+                demo_response_placeholder: "ನಿಮ್ಮ AI-ಚಾಲಿತ ಸಲಹೆ ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ...",
+                footer_p1: "© 2024 ಅಗ್ರಿ-ಕನೆಕ್ಟ್ ಪ್ರಾಜೆಕ್ಟ್. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.",
+                footer_p2: "ಒಂದು ರೈತ-ಪ್ರಥಮ ಉಪಕ್ರಮ",
+                charts: {
+                    query_pie_labels: ['ಮಾರುಕಟ್ಟೆ ಸಂಪರ್ಕ ಮತ್ತು ಬೆಲೆಗಳು', 'ಬೆಳೆ ಮತ್ತು ಮಣ್ಣು ಸಲಹೆ', 'ಕೀಟ ಮತ್ತು ರೋಗ', 'ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು', 'ಹವಾಮಾನ', 'ಇತರೆ'],
+                    cost_delay_labels: ['ಕೀಟಗಳ ದಾಳಿ', 'ಬಿತ್ತನೆ ಸಮಯದ ಪ್ರಶ್ನೆ', 'ಸಬ್ಸಿಡಿ ಮಾಹಿತಿಯಲ್ಲಿ ವಿಳಂಬ'],
+                    cost_delay_dataset_label: 'ದಿನಕ್ಕೆ ಸಂಭಾವ್ಯ ನಷ್ಟ (₹)',
+                    resolution_labels: ['ಸಾಂಪ್ರದಾಯಿಕ ವಿಧಾನಗಳು', 'ಅಗ್ರಿ-ಕನೆಕ್ಟ್'],
+                    resolution_dataset_label: 'ಸರಾಸರಿ ಪರಿಹಾರ ಸಮಯ (ನಿಮಿಷಗಳು)',
+                    profit_labels: ['ಗೋಧಿ', 'ಸಾಸಿವೆ', 'ಹತ್ತಿ'],
+                    profit_dataset_label1: 'ಅಗ್ರಿ-ಕನೆಕ್ಟ್ ಇಲ್ಲದೆ ಆದಾಯ (₹)',
+                    profit_dataset_label2: 'ಅಗ್ರಿ-ಕನೆಕ್ಟ್‌ನೊಂದಿಗೆ ಆದಾಯ (₹)',
+                }
+            }
+        };
+
+
+        let queryPieChart, costOfDelayChart, resolutionTimeChart, profitabilityBarChart;
+        let currentLanguage = 'en';
+
+        // --- Language Switching Logic ---
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            const langData = translations[lang];
+
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (langData[key]) {
+                    element.innerHTML = langData[key];
+                }
+            });
+            
+            document.querySelectorAll('[data-key-placeholder]').forEach(element => {
+                 const key = element.getAttribute('data-key-placeholder');
+                 if (langData[key]) {
+                    element.placeholder = langData[key];
+                }
+            });
+
+            // Update active button
+            document.querySelectorAll('#language-switcher .lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+            
+            renderCharts(lang);
+        }
+
+        document.getElementById('language-switcher').addEventListener('click', (event) => {
+            if (event.target.tagName === 'BUTTON') {
+                const lang = event.target.getAttribute('data-lang');
+                if (lang) {
+                    setLanguage(lang);
+                }
+            }
+        });
+
+
+        // --- Chart Rendering Logic ---
+        function renderCharts(lang = 'en') {
+            const chartTranslations = translations[lang].charts;
+            
+            // Destroy existing charts if they exist
+            if(queryPieChart) queryPieChart.destroy();
+            if(costOfDelayChart) costOfDelayChart.destroy();
+            if(resolutionTimeChart) resolutionTimeChart.destroy();
+            if(profitabilityBarChart) profitabilityBarChart.destroy();
+
             // 1. Pie Chart for Farmer Queries
             const queryPieCtx = document.getElementById('queryPieChart').getContext('2d');
-            new Chart(queryPieCtx, {
+            queryPieChart = new Chart(queryPieCtx, {
                 type: 'pie',
                 data: {
-                    labels: ['Market Linkage & Prices', 'Crop & Soil Advisory', 'Pest & Disease', 'Govt. Schemes', 'Weather', 'Other'],
+                    labels: chartTranslations.query_pie_labels,
                     datasets: [{
                         label: 'Query Distribution',
                         data: [35, 25, 15, 10, 10, 5],
@@ -359,12 +741,12 @@
 
             // 2. Bar Chart for Cost of Delay
             const costOfDelayCtx = document.getElementById('costOfDelayChart').getContext('2d');
-            new Chart(costOfDelayCtx, {
+            costOfDelayChart = new Chart(costOfDelayCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['Pest Attack', 'Sowing Time Query', 'Subsidy Info Delay'],
+                    labels: chartTranslations.cost_delay_labels,
                     datasets: [{
-                        label: 'Potential Loss per Day (₹)',
+                        label: chartTranslations.cost_delay_dataset_label,
                         data: [5500, 3000, 2000],
                         backgroundColor: '#dc2626',
                         borderColor: '#b91c1c',
@@ -380,12 +762,12 @@
 
             // 3. Horizontal Bar Chart for Resolution Time
             const resolutionTimeCtx = document.getElementById('resolutionTimeChart').getContext('2d');
-            new Chart(resolutionTimeCtx, {
+            resolutionTimeChart = new Chart(resolutionTimeCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['Traditional Methods', 'Agri-Connect'],
+                    labels: chartTranslations.resolution_labels,
                     datasets: [{
-                        label: 'Avg. Resolution Time (Minutes)',
+                        label: chartTranslations.resolution_dataset_label,
                         data: [720, 5], // 12 hours vs 5 minutes
                         backgroundColor: ['#f59e0b', '#16a34a'],
                         borderWidth: 1
@@ -401,17 +783,17 @@
 
             // 4. Bar Chart for Profitability
             const profitabilityBarCtx = document.getElementById('profitabilityBarChart').getContext('2d');
-            new Chart(profitabilityBarCtx, {
+            profitabilityBarChart = new Chart(profitabilityBarCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['Wheat', 'Mustard', 'Cotton'],
+                    labels: chartTranslations.profit_labels,
                     datasets: [{
-                        label: 'Income without Agri-Connect (₹)',
+                        label: chartTranslations.profit_dataset_label1,
                         data: [45000, 48000, 65000],
                         backgroundColor: '#a7f3d0',
                         borderWidth: 1
                     }, {
-                        label: 'Income with Agri-Connect (₹)',
+                        label: chartTranslations.profit_dataset_label2,
                         data: [54000, 58000, 78000],
                         backgroundColor: '#16a34a',
                         borderWidth: 1
@@ -428,7 +810,9 @@
                     plugins: { legend: { position: 'top' } }
                 }
             });
-        });
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => setLanguage('en'));
 
         // --- Gemini API Integration ---
         const queryInput = document.getElementById('queryInput');
@@ -459,7 +843,15 @@
 
             const systemPrompt = "You are Agri-Connect, an expert AI assistant for farmers in Rajasthan, India. Provide clear, concise, and actionable advice in simple, easy-to-understand language. If the query is in Hindi, respond in Hindi. Your knowledge base includes local crop calendars for Rajasthan, pest advisories, weather patterns, and Indian government scheme guidelines. Always consider the current date and the location as Rajasthan to give hyper-local advice. Start your response with a friendly greeting and format key points using markdown (e.g., **bolding** and * lists).";
 
-            const apiKey = "AIzaSyCm4FWG4WjVOit-LcPZW2BWRMlfe5eRDJk"; // API key is handled by the execution environment.
+            // PLEASE NOTE: You must generate your own API key from Google AI Studio.
+            // Go to https://aistudio.google.com/app/apikey to create one.
+            const apiKey = "AIzaSyCm4FWG4WjVOit-LcPZW2BWRMlfe5eRDJk"; // IMPORTANT: Replace with your actual Gemini API key.
+            if (apiKey === "AIzaSyCm4FWG4WjVOit-LcPZW2BWRMlfe5eRDJk") {
+                responseContainer.innerHTML = '<strong>Error:</strong> Please replace "YOUR_API_KEY_HERE" with your actual Gemini API key in the script section of this HTML file.';
+                submitBtn.disabled = false;
+                loadingSpinner.style.display = 'none';
+                return;
+            }
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
             const payload = {
